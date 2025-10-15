@@ -1,0 +1,88 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in the High School Activities Management System
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this bug! Please fill out the sections below to help us understand and fix the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: "Example: When I try to register a student for the Soccer Team, the page shows an error message."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: What area is affected?
+      description: Select the area where you're experiencing the issue
+      options:
+        - Student Registration
+        - Teacher Authentication/Login
+        - Activity Display/Filtering
+        - Search Functionality
+        - User Interface/Styling
+        - Backend API
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: List the exact steps to reproduce the bug
+      placeholder: |
+        1. Go to the activities page
+        2. Click on 'Soccer Team' activity
+        3. Enter student email 'john@mergington.edu'
+        4. Click 'Register'
+        5. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: "The student should be successfully registered for the activity."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: "An error message appears: 'Failed to register student'"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem (screenshots, error messages, etc.)
+      placeholder: "Error in browser console: 'TypeError: Cannot read property...'"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this issue?
+      options:
+        - Critical - System is unusable
+        - High - Major functionality is broken
+        - Medium - Feature doesn't work as expected
+        - Low - Minor issue or cosmetic problem
+    validations:
+      required: true

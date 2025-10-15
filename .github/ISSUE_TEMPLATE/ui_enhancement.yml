@@ -1,0 +1,121 @@
+name: UI/Design Enhancement
+description: Request improvements to the user interface, styling, or visual design
+title: "[UI]: "
+labels: ["ui", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request changes to the visual appearance, layout, or user experience of the application.
+
+  - type: dropdown
+    id: ui_area
+    attributes:
+      label: Which part of the UI needs improvement?
+      options:
+        - Overall color scheme/theme
+        - Activity cards layout
+        - Header/Navigation
+        - Filters and search
+        - Registration modal
+        - Login modal
+        - Mobile responsiveness
+        - Animations/Transitions
+        - Typography
+        - Spacing/Layout
+        - Icons/Images
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current State
+      description: Describe what the UI currently looks like or how it currently behaves
+      placeholder: "Example: The website uses a blue color scheme, but our school colors are white and lime green."
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_state
+    attributes:
+      label: Desired State
+      description: Describe what you want the UI to look like or how it should behave
+      placeholder: "Example: Change primary colors to white (#FFFFFF) and lime green (#32CD32) to match school branding."
+    validations:
+      required: true
+
+  - type: textarea
+    id: design_specs
+    attributes:
+      label: Design Specifications
+      description: Provide specific design details (colors, dimensions, fonts, etc.)
+      placeholder: |
+        Example:
+        - Primary color: #32CD32 (lime green)
+        - Secondary color: #FFFFFF (white)
+        - Accent color: #228B22 (forest green)
+        - Update header background to lime green
+        - Update buttons to use school colors
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List what needs to be completed for this change
+      placeholder: |
+        - [ ] Header background changed to lime green
+        - [ ] Button colors updated to match school colors
+        - [ ] Text remains readable with good contrast
+        - [ ] Changes are consistent across all pages
+        - [ ] Mobile view maintains proper styling
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_files
+    attributes:
+      label: Files Likely Affected
+      description: Which files will probably need changes?
+      multiple: true
+      options:
+        - src/static/styles.css
+        - src/static/index.html
+        - src/static/app.js
+        - Not sure
+    validations:
+      required: false
+
+  - type: textarea
+    id: visual_examples
+    attributes:
+      label: Visual Examples or References
+      description: Provide links to examples, mockups, or screenshots
+      placeholder: "Example: Similar to the design at https://example.com/design"
+    validations:
+      required: false
+
+  - type: textarea
+    id: user_benefit
+    attributes:
+      label: User Benefit
+      description: How will this improve the user experience?
+      placeholder: "Example: Students and visitors will immediately recognize the school branding, creating a more cohesive experience."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: considerations
+    attributes:
+      label: Considerations
+      description: Important factors to keep in mind
+      options:
+        - label: This change should maintain accessibility standards (readable text, proper contrast)
+          required: false
+        - label: This change should work on mobile devices
+          required: false
+        - label: This change should not break existing functionality
+          required: false

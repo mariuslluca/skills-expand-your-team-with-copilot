@@ -1,0 +1,98 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for the Activities Management System
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please provide as much detail as possible to help us understand your request.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Need
+      description: Describe the problem this feature would solve or the need it would address
+      placeholder: "Example: Students are asking for a way to view activities in a calendar format rather than just cards."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the feature you'd like to see implemented
+      placeholder: "Example: Add a calendar view that shows activities organized by day and time, with a toggle to switch between card and calendar views."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature_area
+    attributes:
+      label: Feature Area
+      description: What part of the system would this feature affect?
+      options:
+        - User Interface (Frontend)
+        - Activity Management
+        - Filtering and Search
+        - Teacher Authentication
+        - Student Registration
+        - Backend API
+        - Database/Data Model
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the specific requirements that must be met for this feature to be considered complete
+      placeholder: |
+        - [ ] A calendar view toggle button is added to the top bar
+        - [ ] Calendar displays Sunday through Saturday horizontally
+        - [ ] Activities are positioned at their correct time slots
+        - [ ] Overlapping activities are shown side-by-side
+        - [ ] Hovering over an activity shows full details
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits
+      description: Who would benefit from this feature and how?
+      placeholder: "Students and teachers would find it easier to identify time conflicts and available slots."
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative approaches?
+      placeholder: "We could add a daily view instead of weekly, but that might be less useful for planning."
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any other context, mockups, or examples
+      placeholder: "Similar to Google Calendar's week view"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature?
+      options:
+        - High - Needed urgently
+        - Medium - Would be very helpful
+        - Low - Nice to have
+    validations:
+      required: true
