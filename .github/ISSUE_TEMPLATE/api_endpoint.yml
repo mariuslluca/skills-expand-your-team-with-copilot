@@ -1,0 +1,177 @@
+name: API/Backend Enhancement
+description: Request a new API endpoint or modification to backend functionality
+title: "[API]: "
+labels: ["backend", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request new backend functionality or modifications to existing API endpoints.
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: What type of backend change is needed?
+      options:
+        - New API endpoint
+        - Modify existing endpoint
+        - Database schema change
+        - Authentication/Authorization
+        - Data validation
+        - Performance improvement
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: endpoint_path
+    attributes:
+      label: API Endpoint Path
+      description: The path for the endpoint (e.g., /activities, /auth/login)
+      placeholder: "Example: /activities/bulk-register"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: http_method
+    attributes:
+      label: HTTP Method
+      options:
+        - GET
+        - POST
+        - PUT
+        - PATCH
+        - DELETE
+    validations:
+      required: true
+
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose
+      description: What should this endpoint do?
+      placeholder: "Example: Allow teachers to register multiple students for an activity at once, instead of one at a time."
+    validations:
+      required: true
+
+  - type: textarea
+    id: request_format
+    attributes:
+      label: Request Format
+      description: Describe the expected request parameters or body
+      placeholder: |
+        Example:
+        Query Parameters:
+        - teacher_username: string (required)
+        
+        Request Body (JSON):
+        {
+          "activity_name": "Soccer Team",
+          "student_emails": ["john@mergington.edu", "jane@mergington.edu"]
+        }
+    validations:
+      required: true
+
+  - type: textarea
+    id: response_format
+    attributes:
+      label: Expected Response
+      description: Describe what the endpoint should return
+      placeholder: |
+        Example Success Response (200):
+        {
+          "message": "Successfully registered 2 students",
+          "successful": ["john@mergington.edu", "jane@mergington.edu"],
+          "failed": []
+        }
+        
+        Example Error Response (400):
+        {
+          "detail": "Activity not found"
+        }
+    validations:
+      required: true
+
+  - type: textarea
+    id: authentication
+    attributes:
+      label: Authentication Requirements
+      description: Does this endpoint require authentication? What permissions are needed?
+      placeholder: "Example: Requires teacher authentication. Only authenticated teachers can access this endpoint."
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation_rules
+    attributes:
+      label: Validation Rules
+      description: What validation should be performed on the input?
+      placeholder: |
+        Example:
+        - Verify teacher is authenticated
+        - Verify activity exists
+        - Verify students are not already registered
+        - Verify activity has enough capacity
+        - Validate email format
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What needs to be completed?
+      placeholder: |
+        - [ ] New endpoint created in appropriate router file
+        - [ ] Request validation implemented
+        - [ ] Authentication check implemented
+        - [ ] Database operations work correctly
+        - [ ] Error handling for edge cases
+        - [ ] Returns appropriate HTTP status codes
+        - [ ] API documentation updated at /docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_hints
+    attributes:
+      label: Implementation Hints
+      description: Suggestions for implementation
+      placeholder: |
+        Example:
+        - Add to src/backend/routers/activities.py
+        - Follow existing pattern from signup_for_activity endpoint
+        - Use activities_collection and teachers_collection from database.py
+        - Consider using a loop to register each student individually
+    validations:
+      required: false
+
+  - type: dropdown
+    id: affected_files
+    attributes:
+      label: Files Likely Affected
+      description: Which backend files will need changes?
+      multiple: true
+      options:
+        - src/backend/routers/activities.py
+        - src/backend/routers/auth.py
+        - src/backend/database.py
+        - src/app.py
+        - Not sure
+    validations:
+      required: false
+
+  - type: textarea
+    id: testing_scenarios
+    attributes:
+      label: Testing Scenarios
+      description: How should this be tested?
+      placeholder: |
+        Example:
+        1. Test successful bulk registration
+        2. Test with non-existent activity
+        3. Test without authentication
+        4. Test with already-registered students
+        5. Test with activity at capacity
+    validations:
+      required: false

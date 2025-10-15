@@ -1,0 +1,130 @@
+name: Activity Management
+description: Request to add, modify, or remove an extracurricular activity
+title: "[Activity]: "
+labels: ["activity-management"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request changes to activities in the system. This includes adding new activities, modifying existing ones, or removing activities.
+
+  - type: dropdown
+    id: action_type
+    attributes:
+      label: What type of change are you requesting?
+      options:
+        - Add a new activity
+        - Modify an existing activity
+        - Remove an activity
+        - Change activity schedule
+        - Update activity capacity
+    validations:
+      required: true
+
+  - type: input
+    id: activity_name
+    attributes:
+      label: Activity Name
+      description: The name of the activity (existing name if modifying/removing, new name if adding)
+      placeholder: "Example: Chess Club"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Activity Description
+      description: Describe what this activity is about (for new activities or modifications)
+      placeholder: "Example: Learn chess strategies, participate in tournaments, and improve your game"
+    validations:
+      required: false
+
+  - type: input
+    id: schedule_days
+    attributes:
+      label: Schedule - Days
+      description: Which days does this activity meet?
+      placeholder: "Example: Monday, Wednesday, Friday"
+    validations:
+      required: false
+
+  - type: input
+    id: schedule_start
+    attributes:
+      label: Schedule - Start Time
+      description: What time does the activity start? (Use 24-hour format HH:MM)
+      placeholder: "Example: 15:30"
+    validations:
+      required: false
+
+  - type: input
+    id: schedule_end
+    attributes:
+      label: Schedule - End Time
+      description: What time does the activity end? (Use 24-hour format HH:MM)
+      placeholder: "Example: 17:00"
+    validations:
+      required: false
+
+  - type: input
+    id: max_participants
+    attributes:
+      label: Maximum Participants
+      description: How many students can participate in this activity?
+      placeholder: "Example: 20"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: activity_type
+    attributes:
+      label: Activity Type/Category
+      description: What category does this activity fall under?
+      options:
+        - Sports
+        - Arts
+        - Academic
+        - Technology
+        - Community
+        - Other
+    validations:
+      required: false
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Reason for Change
+      description: Why is this change needed?
+      placeholder: "Example: Students have been requesting a chess club, and we have a teacher willing to supervise."
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: Implementation Notes
+      description: Any specific details about how this should be implemented?
+      placeholder: |
+        Example for adding a new activity:
+        - Add to database.py in the activities_data dictionary
+        - Set initial participants to empty list
+        - Ensure schedule_details follow the existing format with days array and time strings
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_checklist
+    attributes:
+      label: Acceptance Criteria
+      description: What should be verified after this change?
+      options:
+        - label: Activity appears in the activities list on the frontend
+          required: false
+        - label: Activity can be filtered by day and time
+          required: false
+        - label: Students can be registered for the activity (if applicable)
+          required: false
+        - label: Activity displays correct schedule information
+          required: false
+        - label: Maximum participant limit is enforced (if applicable)
+          required: false

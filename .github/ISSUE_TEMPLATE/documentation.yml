@@ -1,0 +1,83 @@
+name: Documentation Update
+description: Request updates or improvements to documentation
+title: "[Docs]: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request documentation updates, corrections, or additions.
+
+  - type: dropdown
+    id: doc_type
+    attributes:
+      label: Type of Documentation Change
+      options:
+        - Fix incorrect information
+        - Add missing documentation
+        - Update outdated documentation
+        - Improve clarity/readability
+        - Add examples or tutorials
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: doc_location
+    attributes:
+      label: Documentation Location
+      description: Which file or section needs to be updated?
+      placeholder: "Example: docs/how-to-develop.md - Usage section"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_content
+    attributes:
+      label: Current Content
+      description: What does the documentation currently say (or what is missing)?
+      placeholder: "Example: The API endpoints table is missing the unregister endpoint"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_content
+    attributes:
+      label: Proposed Content
+      description: What should the documentation say instead (or what should be added)?
+      placeholder: |
+        Example: Add the following row to the API endpoints table:
+        | POST   | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Remove a student from an activity |
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Reason for Change
+      description: Why is this documentation change needed?
+      placeholder: "Example: Teachers are trying to unregister students but can't find documentation on how to do it"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What should be verified after this change?
+      placeholder: |
+        - [ ] Documentation accurately describes the feature/endpoint
+        - [ ] Examples are provided if applicable
+        - [ ] Information is up-to-date with current code
+        - [ ] Documentation is clear and easy to understand
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help with this documentation update
+      placeholder: "Example: This relates to the new bulk registration feature"
+    validations:
+      required: false
