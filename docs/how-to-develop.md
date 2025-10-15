@@ -1,5 +1,9 @@
 # Development Guide
 
+## For Teachers
+
+If you need to request changes or report issues, please see the [Creating Issues Guide](./creating-issues.md) for information on how to submit well-structured requests.
+
 ## Initial Setup
 
 This project is best developed using GitHub Codespaces, which provides a consistent development environment with all the necessary tools pre-configured.
